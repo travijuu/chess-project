@@ -215,7 +215,7 @@ ul {position:absolute; margin:5px 10px 10px 20px;padding:0; padding-left:10px; c
 <div id="start"></div>
 <p id="interface">Chess Interface<br />v1.0
 <input type="button" value="Start" class="but" onClick="run()"/></p>
-<div id="menu"> <ul><li style='list-style-image:url(1.png);' onclick='pieceChoice("p")'>Pawn</li><li style='list-style-image:url(2.png);' onclick='pieceChoice("n")'>Knight</li><li style='list-style-image:url(3.png);' onclick='pieceChoice("b")'>Bishop</li><li style='list-style-image:url(4.png);' onclick='pieceChoice("r")'>Rook</li><li style='list-style-image:url(5.png);' onclick='pieceChoice("q")'>Queen</li><li style='list-style-image:url(6.png);'onclick='pieceChoice("k")'>King</li></ul></div>
+<div id="menu"> <ul><li style='list-style-image:url(images/1.png);' onclick='pieceChoice("p")'>Pawn</li><li style='list-style-image:url(images/2.png);' onclick='pieceChoice("n")'>Knight</li><li style='list-style-image:url(images/3.png);' onclick='pieceChoice("b")'>Bishop</li><li style='list-style-image:url(images/4.png);' onclick='pieceChoice("r")'>Rook</li><li style='list-style-image:url(images/5.png);' onclick='pieceChoice("q")'>Queen</li><li style='list-style-image:url(images/6.png);'onclick='pieceChoice("k")'>King</li></ul></div>
 <script type=text/javascript>
 var cnt=0, next=false, turn="white", jumpFrom, wLost=0, bLost=0, wTime=0, bTime=0, finished=false, pCord=new Array(8), xX, yY,mov=1,op = 0.6,aiActiveCord=new Array(20),len=0 ,aa, bb,enemy,GoOn=1,GoOn2=1,Active,y=500, selected=false,selectedPiece=" ";
 var possibleCord=new Array(10),posLen, checkmate=0,aiVal=new Array(),hostile=false,aiHost=new Array(),hostLen=0,aiLen=0,leng;
@@ -223,7 +223,7 @@ var aiCord=new Array();
 document.write("<div id=sol><div class=heading>WHITE PLAYER <span style=color:#000000; font-weight:normal; id=wClock>00:00</span></div><table border=0 cellspacing=0 class=table2><tr>");
 for (i=0;i<=15;i++)
 {
-document.write("<td class=eaten align=center><img src=empty.png id=eWhite"+i+"></td>");
+document.write("<td class=eaten align=center><img src=images/empty.png id=eWhite"+i+"></td>");
 if(i==7)
 document.write("</tr><tr>");
 }
@@ -231,7 +231,7 @@ document.write("</tr></table><br /><br /><br /><br /><br /><br />");
 document.write("<div class=heading>BLACK PLAYER <span style=color:#000000; font-weight:normal; id=bClock>00:00</span></div><table border=0 cellspacing=0 class=table2><tr>");
 for (i=0;i<=15;i++)
 {
-document.write("<td class=eaten align=center><img src=empty.png id=eBlack"+i+"></td>");
+document.write("<td class=eaten align=center><img src=images/empty.png id=eBlack"+i+"></td>");
 if(i==7)
 document.write("</tr><tr>");
 }
@@ -255,8 +255,8 @@ placer();
 function run() { event1 = window.setInterval("fadeOut('start')",30); document.getElementById("interface").style.visibility="hidden"; window.setInterval("clock();updateClock();",1000); document.all.movement.value = " The Game Has Started ! "; }
 function placer()
 {
-var wimg=new Array("wr.png","wn.png","wb.png","wq.png","wk.png","wb.png","wn.png","wr.png","wp.png");
-var bimg=new Array("br.png","bn.png","bb.png","bq.png","bk.png","bb.png","bn.png","br.png","bp.png");
+var wimg=new Array("images/wr.png","images/wn.png","images/wb.png","images/wq.png","images/wk.png","images/wb.png","images/wn.png","images/wr.png","images/wp.png");
+var bimg=new Array("images/br.png","images/bn.png","images/bb.png","images/bq.png","images/bk.png","images/bb.png","images/bn.png","images/br.png","images/bp.png");
 for(k=0;k<8;k++)
 {
 switch(k)
@@ -282,7 +282,7 @@ document.getElementById(pCord[6][i]).desc="white";
 default:
 for(i=0;i<8;i++)
 {
-document.getElementById(pCord[k][i]).src="empty.png";
+document.getElementById(pCord[k][i]).src="images/empty.png";
 document.getElementById(pCord[k][i]).desc="emp";
 }
 }
@@ -660,7 +660,7 @@ document.getElementById("eBlack"+(bLost++)).src=to.src;
 to.src=from.src;
 to.desc=from.desc;
 from.desc="emp";
-from.src="empty.png";
+from.src="images/empty.png";
 statusControl();
 if(turn=="white") turn="black"; else turn="white";
 }
@@ -804,13 +804,13 @@ function pieceChoice(Type)
 {
 target = document.getElementById(selectedPiece);
 if (xx == 0 && target.desc == "white" && target.src.indexOf("p.png")!=-1)
-target.src = "w"+Type+".png";
+target.src = "images/w"+Type+".png";
 }
 function aiPieceChoice(aiTarget)
 {
 target = document.getElementById(aiTarget);
 if(xx==7 && target.desc == "black" && target.src.indexOf("p.png")!=-1)
-target.src="bq.png";
+target.src="images/bq.png";
 }
 function clock() {if (!finished){if (turn=="white") wTime++; else bTime++;} }
 function zero(x){ if (x < 10) return "0"+x;else return x;}
