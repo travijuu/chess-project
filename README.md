@@ -1,4 +1,5 @@
-chess-project
+chess-project (CTIS 255)
 =========================
 
-Chess game by using html, css and javascript
+This is a chess game with a simple AI by using html, css and javascript for school project
+
